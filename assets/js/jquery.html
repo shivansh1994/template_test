@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" id="ng-app" lang="en" ng-app="myApp" > <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" id="ng-app" lang="en" ng-app="myApp"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" id="ng-app" lang="en" ng-app="myApp"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" id="ng-app" lang="en" ng-app="myApp"> <!--<![endif]-->
+
+<!-- Mirrored from www.mylink2o.com/js/jquery.js by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 04 Oct 2016 13:22:45 GMT -->
+<head>
+        <meta charset="utf-8" />
+
+        <!-- Set the viewport width to device width for mobile -->
+        <meta name="viewport" content="width=device-width" />
+
+        <title>Power of Connectivity | Link2O™ Pentair</title>
+        <meta name="description" content="Pentair's Link2O™ technology is a wireless remote communication system that monitors connected devices, providing the power of constant contact – whether you're home or away, 24 hours a day, 7 days a week." />
+
+        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-mobile-web-app-title" content="LINK2O" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<link rel="stylesheet" href="../css/foundation.css" />
+<link rel="stylesheet" href="../css/app.css" />
+<link rel="stylesheet" href="../css/add2home.css" />
+<link rel="apple-touch-icon" href="../pics/favicons/touch-icon-iphone.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="../pics/favicons/touch-icon-ipad.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="../pics/favicons/touch-icon-iphone-retina.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="../pics/favicons/touch-icon-ipad-retina.png" />
+<link rel="shortcut icon" href="https://www.mylink2o.com/pics/favicons/favicon.ico" />
+<script src="jquery.cookies.2.2.0.min.js"></script>
+<script src="libs/modernizr.foundation.js"></script>
+<script src="../../ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="jquery.html"><\/script>')</script>
+<script src="foundation.min.js"></script>
+<script src="libs/jquery.foundation.forms.js"></script>
+<script src="libs/jquery.foundation.reveal.js"></script>
+<script src="plugins.js"></script>
+<script src="script.js"></script>
+
+<script type="text/javascript" src="../../ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="../css/mmenu/jquery.mmenu.js"></script>
+<link rel="stylesheet" href="../css/mmenu/jquery.mmenu.css" />
+<link rel="stylesheet" href="../css/mmenu/jquery.mmenu.themes.css" />
+<script type="text/javascript">
+	$(function() {
+		$("nav#menu").mmenu({
+   			// options object
+		}, {
+   			// configuration object
+		});
+	});
+</script>
+		<script type="text/javascript">
+            function check_sms(num){
+                var status = 0;
+                if($('#sms'+num).attr('checked') == 'checked'){
+                        status = 1;
+                }
+                return status;
+            }
+        </script>
+        <script type="text/javascript">
+			$(function() {
+				$("li.tstatus a").click(function() {
+                    $("li.tstatus").addClass("tactive");
+                    $("#tstatus").show();
+                    $("li.tbasic").removeClass("tactive");
+                    $("#tbasic").hide();
+                    $("li.tio").removeClass("tactive");
+                    $("#tio").hide();
+                    $("li.tadvanced").removeClass("tactive");
+                    $("#tadvanced").hide();
+                    return false;
+                });
+                $("li.tbasic a").click(function() {
+                    $("li.tstatus").removeClass("tactive");
+                    $("#tstatus").hide();
+                    $("li.tbasic").addClass("tactive");
+                    $("#tbasic").show();
+                    $("li.tio").removeClass("tactive");
+                    $("#tio").hide();
+                    $("li.tadvanced").removeClass("tactive");
+                    $("#tadvanced").hide();
+                    return false;
+                });
+                $("li.tio a").click(function() {
+                    $("li.tstatus").removeClass("tactive");
+                    $("#tstatus").hide();
+                    $("li.tbasic").removeClass("tactive");
+                    $("#tbasic").hide();
+                    $("li.tio").addClass("tactive");
+                    $("#tio").show();
+                    $("li.tadvanced").removeClass("tactive");
+                    $("#tadvanced").hide();
+                    return false;
+                });
+                $("li.tadvanced a").click(function() {
+                    $("li.tstatus").removeClass("tactive");
+                    $("#tstatus").hide();
+                    $("li.tbasic").removeClass("tactive");
+                    $("#tbasic").hide();
+                    $("li.tio").removeClass("tactive");
+                    $("#tio").hide();
+                    $("li.tadvanced").addClass("tactive");
+                    $("#tadvanced").show();
+                    return false;
+                });
+
+                sessionvars = [{'securityToken': '', 'userId': '', 'userName': ''}];
+			});
+		</script>
+    </head>
+<body>
+<div>
+
+
+<!-- Start Site's Navigation -->
+<section class="dealeradmin" ng-show="isDealer===1" ng-controller="arrayentController" ng-cloak >
+    <a href="https://www.mylink2o.com/#/customers" ng-click="logout()">Back to Customer List »</a> &nbsp;
+    <a href="https://www.mylink2o.com/#/customers" ng-click="dealerLogout()" ng-if="!userName">Logout</a>
+    <div class="account-in dealeraccount" ng-show="dealer.details.dealer_name != 'Pentair Support'">
+        <a href="https://www.mylink2o.com/#/customers" ng-click="logout()">{{dealer.details.dealer_email}}</a>
+        <ul class="accountdrop hide">
+            <li><a href="#" ng-click="dealerLogout()" >Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="account-in dealeraccount" ng-show="dealer.details.dealer_name == 'Pentair Support' && userName">
+        <a href="#/">{{userName}}</a>
+        <ul class="accountdrop hide">
+            <li><a href="#/profile" ng-click="resetExpire()">Profile</a></li>
+            <!-- <li><a href="/my-account/billing">Billing</a></li> -->
+            <li><a href="#/equipment-management" ng-click="resetExpire()">Equipment Management</a></li>
+            <li><a href="#" ng-click="logout()">Logout</a></li>
+        </ul>
+    </div>
+
+    <h2 ng-hide="userInformation">&nbsp;</h2>
+    <h2 ng-show="userInformation">Viewing {{getAttr('FirstName')}} {{getAttr('LastName')}}'s Account</h2>
+</section>
+<header class="full" ng-cloak>
+  	<div class="row">
+    	<div class="five columns">
+      		<div class="compact">
+      			<a href="#menu"></a>
+      		</div>
+      		<span class="logo" >
+      			<a href="#/" ng-click="resetExpire()" ng-hide="dealer"><img src="../pics/redesign/link2o-logo.png" alt="Link2O" /></a>
+      			<a href="#/customers" ng-click="logout()" ng-show="dealer"><img src="../pics/redesign/link2o-logo.png" alt="Link2O" /></a>
+      		</span>
+    	</div>
+    	<div class="seven columns" ng-controller="arrayentController"  >
+                <div class="account-in right" ng-show="userName && isDealer===0">
+	        		<a href="#/">{{userName}}</a>
+	        		<ul class="accountdrop hide">
+	        			<li><a href="#/profile" ng-click="resetExpire()">Profile</a></li>
+	        			<!-- <li><a href="/my-account/billing">Billing</a></li> -->
+	        			<li><a href="#/equipment-management" ng-click="resetExpire()">Equipment Management</a></li>
+	        			<li><a href="#" ng-click="logout()">Logout</a></li>
+	        		</ul>
+	        	</div>
+                <div class="account-out right" ng-hide="userName || isDealer===1">
+                     <a href="#/signup/product">Sign-Up</a> <a id="toplogin" data-reveal-id="loginform" href="#" ng-click="popLogin()" class="newaccountlogin">Account Login</a> <span class="account-bar">|</span> <a id="toplogin" data-reveal-id="dloginform" href="#" ng-click="popLogin()" class="newdealerlogin">Dealer Login</a>
+                </div>
+
+	        				<br>
+      		<nav class="navigation">
+  	    		<ul class="nav-bar right">
+					<li ng-hide="userName || isDealer===1">
+                        <a href="#/" data-reveal-id="loginform" ng-click="popLogin()">My Equipment</a>
+	        		</li>
+	        		<li ng-class="{'on': userName}" ng-show="userName || isDealer===1">
+                        <a href="#/" >My Equipment</a>
+	        		</li>
+                    <li ng-hide="isDealer===1" ><a href="../resources/index.html">Resources</a></li>
+                    <li ng-hide="isDealer===1" ><a href="https://www.mylink2o.com/brands/">Brands</a></li>
+                    <li ng-hide="isDealer===1" ><a href="https://www.mylink2o.com/contact/">Contact</a></li>
+      			</ul>
+    		</nav>
+    	</div>
+  	</div>
+</header>
+<nav id="menu" ng-controller="arrayentController" ng-cloak >
+    <ul>
+        <li><a href="#/"  >My Equipment</a></li>
+        <li><a href="../resources/index.html"  >Resources</a>
+            <ul>
+                <li><a href="../resources/installation.html">Installation</a></li>
+                <li><a href="../resources/maintenance.html">Maintenance</a></li>
+            </ul>
+        </li>
+        <li><a href="https://www.mylink2o.com/brands/"  >Brands</a></li>
+        <li><a href="https://www.mylink2o.com/contact/"  >Contact</a></li>
+        <li><a href="#/signup/product">Sign-Up</a></li>
+        <li ng-show="userName && isDealer===0" ><a href="https://www.mylink2o.com/my-account/"  >My Account</a>
+            <ul>
+                <li><a href="#/profile" ng-click="mobile_nav('profile');" >Profile</a></li>
+                <!-- <li><a href="/my-account/billing"  >Billing</a></li> -->
+                <li><a href="#/equipment-management" ng-click="mobile_nav('equipment-management');" >Equipment Management</a></li>
+                <li><a href="#/" ng-click="logout()">Logout</a></li>
+            </ul>
+        </li>
+        <li class="menusub" ng-hide="isDealer===1"><a href="https://www.mylink2o.com/terms-of-use/"  >Terms of Use</a></li>
+        <li class="menusub"  ng-hide="isDealer===1"><a href="https://www.mylink2o.com/privacy-policy/"  >Privacy Policy</a></li>
+    </ul>
+</nav>
+<!-- Site Login & Forgot Password forms -->
+<section class="signctr clearfix" style="padding:0;" ng-controller="arrayentController">
+  	<div class="row">
+    	<div class="four columns">
+			<div id="loginform" class="reveal-modal" style="margin-left: 0;">
+                <h2>Account Login</h2>
+                <!--<div class="maintenance-notice">Virtual Water Assistant will be unavailable during a 2.5 hour window beginning<br>
+    Tuesday, December 9th at 10:00 AM (PST).</div>-->
+                <form  ng-submit="getLogin(user)" id="login-form" name="login_form" method="post" >
+                    <div class="row">
+                        <div class="twelve columns">
+                            <label>Email Address</label>
+                            <input type="text" name="login_username" value="" id="login_username" ng-model="user.username" />
+                            <label>Password</label>
+                            <input type="password" name="login_password" value="" ng-model="user.password" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="four columns">
+                            <div class="button blue">
+                            <input type="Submit" id="login-btn" value="Login"  />
+                            </div>
+                        </div>
+                        <div class="eight columns">
+                            <label>
+                                <input type="checkbox" name="store_pass" ng-checked="user.save_login" ng-model="user.save_login" /> Save my login information
+                            </label>
+                            <span id="acct_feedback" class="feedback" >Your username or password has been entered incorrectly.<br></span>
+                            <a href="#" data-reveal-id="forgotform">Forgot your password?</a>
+                        </div>
+                    </div>
+                </form>
+                <a class="close-reveal-modal"><img src="../pics/shared/x.png" alt="close" /></a>
+            </div>
+            <div id="dloginform" class="reveal-modal" style="margin-left: 0;">
+                <h2>Pentair Pro Dealer Login</h2>
+                <!--<div class="maintenance-notice" style="display:none;" id="dealerloginerror">Your email/password were entered incorrectly.</div>-->
+                <form  ng-submit="dealerLogin(duser)" id="dlogin-form" name="login_form" method="post" >
+                    <div class="row">
+                        <div class="twelve columns">
+                            <label>Email Address or Username</label>
+                            <input type="text" name="login_username" value="" ng-model="duser.username" />
+                            <label>Password</label>
+                            <input type="password" name="login_password" value="" ng-model="duser.password" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="four columns">
+                            <div class="button blue">
+                            <input type="Submit" id="dlogin-btn" value="Login" />
+                            </div>
+                        </div>
+                        <div class="eight columns">
+                            <label>
+                                <input type="checkbox" name="store_pass" ng-checked="duser.save_login" ng-model="duser.save_login" /> Save my login information
+                            </label>
+                            <span id="dealer_feedback" class="feedback" >Your username or password has been entered incorrectly.<br></span>
+                            <!--<a href="" data-reveal-id="dforgotform">Forgot your password?</a>-->
+                        </div>
+                    </div>
+                </form>
+                <a class="close-reveal-modal"><img src="../pics/shared/x.png" alt="close" /></a>
+            </div>
+			<div id="forgotform" class="reveal-modal" style="margin-left: 0;">
+			<h2>Forgot Your Password?</h2>
+			<form id="forgot_form" name="forgot_password" ng-submit="resetPassword(user)" method="post">
+				<div class="row">
+                    <div class="twelve columns">
+                        <label>Email Address</label>
+                        <input type="text" name="email_address" ng-model="user.email_address" />
+                        <div class="button blue">
+                            <input type="Submit" id="reset-password-btn" value="Reset My Password" />
+                        </div>
+                    </div>
+                </div>
+			</form>
+            <a class="close-reveal-modal"><img src="../pics/shared/x.png" alt="close" /></a>
+        </div>
+        	<div id="popnotification" class="reveal-modal" style="margin-left: 0;">
+            <h2>{{notification_msg}}</h2>
+            <a class="close-reveal-modal"><img src="../pics/shared/x.png" alt="close" /></a>
+        </div>
+		</div>
+	</div>
+	<!--
+	<div id="videoModal" class="reveal-modal">
+        <a class="close-reveal-modal">×</a>
+        <div class="flex-video">
+           <iframe style="overflow:hidden;height:100%;width:100%" width="100%" height="100%" src="{{youtube_src}}" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    -->
+</section>
+<script type="text/javascript">
+    $(function() {
+        $("#equip").hover(
+                function() {
+                    $("#equip ul").removeClass("hide");
+                    $(this).addClass("active");
+                    return false;
+                },
+                function() {
+                    $("#equip ul").addClass("hide");
+                    $(this).removeClass("active");
+                    return false;
+                }
+        );
+        $(".account-in").hover(
+                function() {
+                    $(".account-in ul").removeClass("hide");
+                    return false;
+                },
+                function() {
+                    $(".account-in ul").addClass("hide");
+                    return false;
+                }
+        );
+        $("#newproductform-btn").click(function() {
+            $("#newproductform").reveal();
+        });
+        $("#testcyclenotification-btn").click(function() {
+            $("#testcyclenotification").reveal();
+        });
+    });
+</script>
+<!-- END Site's Navigation -->
+<section class="loghome" ng-controller="arrayentController" ng-cloak ng-show="userInformation.userId" >
+                <div class="row">
+                    <div class="eight columns">
+                        <h1>
+                        	<span>Welcome back, {{getAttr('FirstName')}} {{getAttr('LastName')}}</span>
+                            You have {{num_devices}} Registered Product<el ng-show="num_devices>1">s</el>
+                        </h1>
+                        <div id="loading2" class="reveal-modal" style="margin-left: 0;"><br />
+                        <img src="../pics/shared/ajax-loader.gif" />
+						<h3 id="loading_text2">Loading...</h3><br />
+					</div>
+<!--- Do not mess with the hidden link below --->
+<a href="#" data-reveal-id="loading" id="show_loading" style="display:none;" onclick="return false;">Loading</a>
+<a href="#" data-reveal-id="popnotification" id="show_notification" style="display:none;" onclick="return false;">Notification</a>
+<a href="#" class="close-reveal-modal" id="hide_loading" style="display:none;" onclick="return false;"><img src="../pics/shared/x.png" alt="close" /></a>
+<a href="#" data-reveal-id="confirmform" id="show_confirm" style="display:none;" onclick="return false;">Loading</a>               </div>
+                    <div class="four columns">
+                        <div class="addnew-btn">
+                            <a href="#/add/product"><img src="../pics/redesign/plus-icon.png" /> Add a New Product</a>
+                        </div>
+
+                        <div id="testcyclenotification" class="reveal-modal">
+                            <h2>Your device is now running a test cycle.</h2>
+                            <a class="close-reveal-modal"><img src="../pics/shared/x.png" alt="close" /></a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+<div class="homecontain" ng-if=" !onSignup && !userInformation && isDealer===0 " > <!--Start of new homepage -->
+    <section class="home-top clearfix">
+        <div class="row clearfix">
+            <div class="seven">
+                <h2>The Power of Connectivity</h2>
+                <p>Pentair's <strong>Link<sub>2</sub>O&trade;</strong> technology is a wireless remote communication system that monitors connected devices, providing the power of constant contact – whether you're home or away, 24 hours a day, 7 days a week. <strong>Link<sub>2</sub>O</strong> continuously monitors connected devices and sends text and/or email changes to your smartphone, tablet or computer to alert you of any changes in operating conditions. Knowledge is power. With Pentair's <strong>Link<sub>2</sub>O</strong> technology, you'll have the knowledge of real time status of your home's water systems. With constant connection, the power is yours.</p>
+            </div>
+        </div>
+    </section>
+    <section class="home-how clearfix">
+        <div class="five columns">
+            <img src="../pics/intellidrive/be-statement.png" width="460" height="260" />
+        </div>
+        <div class="seven columns">
+            <h2>How it Works</h2>
+            <p><strong>Link<sub>2</sub>O</strong> is a cloud based wireless ecosystem that enables 2 way communication between you and your product. The <strong>Link<sub>2</sub>O Gateway</strong> device plugs into your home's router. Your product "talks" to the gateway device, which then communicates with your mobile device and/or computer.</p>
+        </div>
+    </section>
+    <section class="home-protect clearfix">
+        <div class="seven columns">
+             <h2>Protect Your Home</h2>
+            <p>Whether you are at home, on vacation, at work, or anywhere else in the world, you can communicate with your system and be confident that your home's water systems are functioning correctly.</p>
+            <div class="blue button">
+                <a href="#/signup/product">Sign-Up</a>
+            </div>
+        </div>
+        <div class="five columns">
+        	<a href="https://www.mylink2o.com/signup/video/" target="_blank"><img src="../pics/intellidrive/video.jpg" width="460" height="260" /></a>
+    	</div>
+    </section>
+    <section class="designingspaces clearfix" ng-if=" !onSignup && !userInformation && isDealer===0 ">
+        <div class="row clearfix">
+        	<div class="five columns"><img src="../pics/redesign/DS-LT-Logos.png" width="254" border="0" alt="Design Spaces" /></div>
+        	<div class="seven columns">As seen on Designing Spaces&trade; airing on Lifetime&reg;<span><a href="https://www.mylink2o.com/signup/designingspaces/" target="_blank">Watch the episode  &#187;</a></span></div>
+        </div>
+    </section>
+    <section class="home-compatible clearfix" ng-if=" !onSignup && !userInformation && isDealer===0 ">
+        <div class="row clearfix">
+            <div class="twelve columns">
+                <h2>Connects these Compatible Devices</h2>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="six columns">
+                <img src="../pics/intellidrive/intellidrive.jpg" />
+                <h3><a href="https://www.mylink2o.com/signup/pentek-intellidrive/">Pentek Intellidrive&trade; with Link<sub>2</sub>O</a></h3>
+                <p>Maintain constant water pressure, regardless of how many people or appliances are using water at the same time! With Link<sub>2</sub>O, you'll know right away if anything goes wrong.</p>
+				<a href="https://www.mylink2o.com/signup/pentek-intellidrive/">LEARN MORE</a><br /><br />
+				<a href="https://www.mylink2o.com/signup/intellidrive/"><img src="../pics/intellidrive/intellidrive-link2o-video.png" width="150" height="100" /></a>
+            </div>
+            <div class="six columns">
+                <a href="https://www.mylink2o.com/signup/battery-backup/"><img src="../pics/intellidrive/bbu.jpg" /></a>
+                <h3><a href="https://www.mylink2o.com/signup/battery-backup/">Sump Pump Battery Backup</a></h3>
+                <p>Protect your most valuable investment! Constantly monitors system conditions and alerts you (by cell phone or computer) when your basement is in danger of flooding.</p>
+    			<a href="https://www.mylink2o.com/signup/battery-backup/">LEARN MORE</a><br /><br />
+    			<a href="https://www.mylink2o.com/signup/bbu/"><img src="../pics/intellidrive/bbu-video.png" width="150" height="100" /></a>
+            </div>
+        </div>
+    </section>
+    </div>
+
+</div>   <!--End of new homepage -->
+	<div ng-view ng-cloak id="ngview"></div>
+	<!--<pre>{{userInformation}}</pre>-->
+	<footer class="foot">
+  	<div class="row">
+    	<div class="six columns" ng-hide="isDealer===1">
+    		<a href="https://www.mylink2o.com/terms-of-use/">Terms of Use</a> | <a href="https://www.mylink2o.com/privacy-policy/">Privacy Policy</a>
+    	</div>
+    	<div class="six columns align-right">
+      		<p>&copy; <script>document.write(new Date().getFullYear())</script> Pentair</p>
+		</div>
+	</div>
+</footer>
+	<div id="loading" class="reveal-modal"><br />
+        <img src="../pics/shared/ajax-loader.gif" />
+        <h3 id="loading_text">Loading...</h3><br />
+    </div>
+	<div id="warning" class="reveal-modal small" >
+	<h2>You are about to be logged out.</h2>
+	<div class="four columns"></div>
+  	<div class="four columns">
+		<div class="button blue">
+			<a href="#" id="keep_loggedin" onclick="return false;">Stay Logged In</a>
+		</div>
+	</div>
+	<div class="four columns"></div>
+	<a class="close-reveal-modal"><img src="../pics/shared/x.png" alt="close" /></a>
+</div>
+	<a href="#" data-reveal-id="warning" id="show_warning" style="display:none;">Loading</a>
+	<div id="android" class="reveal-modal">
+	<img src="../pics/favicons/touch-icon-ipad.png" />
+	<p>To add this web app to your <strong>Android</strong> device: tap the menu icon, choose Bookmarks, press and hold to reveal <strong>Add to home screen</strong></p>
+	<a class="close-reveal-modal"><img src="../pics/shared/x.png" alt="close" /></a>
+</div>
+	<div id="windows" class="reveal-modal">
+	<img src="../pics/favicons/touch-icon-ipad.png" />
+	<p>To add this web app to your <strong>Windows</strong> device: tap the menu icon and choose <strong>Pin to Start</strong></p>
+	<a class="close-reveal-modal"><img src="../pics/shared/x.png" alt="close" /></a>
+</div>
+	<script>
+   $(function(){
+   		if($(window).width() < 640){
+			$('.navigation').hide();
+		}
+        /*
+   		var showWarning = window.setInterval(function(){ $('a#show_warning')[0].click(); }, 540000);
+
+		var checkExpiration = window.setInterval(function(){
+		    window.location = '/signup/?logout';
+		}, 600000); //10 minutes
+		$( "#keep_loggedin" ).click(function() {
+			//location.reload();
+                        window.location = '/';
+			return false;
+		});
+        */
+    });
+</script>
+    <!--[if lte IE 9]>
+      <script src="/api/js/vendor/es5-shim.min.js"></script>
+      <script src="/api/js/vendor/es5-sham.min.js"></script>
+    <![endif]-->
+	<script src="../api/js/vendor/angular.js"></script>
+    <script src="../api/js/vendor/angular-route.min.js"></script>
+	<script src="../api/js/vendor/angular-resource.min.js"></script>
+	<script src="../api/js/vendor/ngStorage.js"></script>
+	<script src="../api/js/vendor/angular-cookies.js"></script>
+	<script src="../api/js/vendor/angular-sanitize.js"></script>
+	<script src="../api/app/app.js"></script>
+	<script src="../api/app/controllers/arrayentController.js"></script>
+	<script src="../api/app/controllers/homeController.js"></script>
+	<script src="../api/app/controllers/deviceController.js"></script>
+	<script src="../api/app/directives/homeDirective.js"></script>
+	<script src="../api/app/controllers/profileController.js"></script>
+	<script src="../api/app/controllers/dealerController.js"></script>
+	<script src="../api/app/controllers/signupController.js"></script>
+	<script src="../api/app/controllers/equipmentController.js"></script>
+	<script src="../api/app/controllers/addDeviceController.js"></script>
+	<script src="../api/app/controllers/customersController.js"></script>
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-20730119-4', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+
+<!-- Mirrored from www.mylink2o.com/js/jquery.js by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 04 Oct 2016 13:22:58 GMT -->
+</html>
